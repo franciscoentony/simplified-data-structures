@@ -41,7 +41,7 @@ export default function PagePilha() {
 
   return (
     <BgUniverse>
-      <div className="flex flex-col flex-1 items-center justify-center font-sans text-white relative overflow-hidden px-4">
+      <div className="flex flex-col flex-1 items-center justify-center text-white relative overflow-hidden px-4">
         <Header />
         
         {mostrarErro && (

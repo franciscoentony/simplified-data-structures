@@ -1,20 +1,37 @@
 "use client"
-import { Avatar, SearchField, Button, Dropdown, Label } from "@heroui/react";
+import { useState } from "react";
+import { SearchField } from "@heroui/react";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div className="p-[.1rem] w-[95%] md:w-60/100 mt-5 bg-linear-to-t from-[#151e2f] to-stone-700 rounded-3xl mx-auto">
+    <div className="p-[.1rem] w-[95%] md:w-60/100 mt-5 bg-linear-to-t from-[#151e2f] to-stone-700 rounded-3xl mx-auto z-50 relative">
       <header className="flex flex-col md:flex-row justify-between items-center bg-[#151e2f] p-4 md:p-5 rounded-3xl dark gap-4">
-        <Link href={'/'} className="font-semibold text-2xl">
-          <p>S/ES</p>
-        </Link>
-        <nav className="flex">
-          <ul className="flex gap-2">
+        <div className="flex w-full md:w-auto justify-between items-center">
+          <Link href={'/'} className="font-semibold text-2xl">
+            <p>S/ES</p>
+          </Link>
+          
+          <button 
+            className="md:hidden text-white text-2xl p-2 focus:outline-none"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            <FontAwesomeIcon icon={isOpen ? faXmark : faBars} className="w-6 h-6" />
+          </button>
+        </div>
+
+        <nav className={`${isOpen ? "flex" : "hidden"} md:flex w-full md:w-auto`}>
+          <ul className="flex flex-col md:flex-row gap-2 w-full md:w-auto text-center md:text-left mt-2 md:mt-0">
             <li>
               <Link
                 href="/"
-                className="font-medium p-3 duration-300 ease-in-out hover:bg-indigo-900 rounded-xl"
+                className="block font-medium p-3 duration-300 ease-in-out hover:bg-indigo-900 rounded-xl"
+                onClick={() => setIsOpen(false)}
               >
                 Início
               </Link>
@@ -22,7 +39,8 @@ export default function Header() {
             <li>
               <Link
                 href="/estruturas"
-                className="font-medium p-3 duration-300 ease-in-out hover:bg-indigo-900 rounded-xl"
+                className="block font-medium p-3 duration-300 ease-in-out hover:bg-indigo-900 rounded-xl"
+                onClick={() => setIsOpen(false)}
               >
                 Estruturas
               </Link>
@@ -30,14 +48,16 @@ export default function Header() {
             <li>
               <Link
                 href="/"
-                className="font-medium p-3 duration-300 ease-in-out hover:bg-indigo-900 rounded-xl"
+                className="block font-medium p-3 duration-300 ease-in-out hover:bg-indigo-900 rounded-xl"
+                onClick={() => setIsOpen(false)}
               >
                 Contato
               </Link>
             </li>
           </ul>
         </nav>
-        <div className="dark w-full md:w-auto">
+
+        <div className={`dark w-full md:w-auto ${isOpen ? "block" : "hidden"} md:block pb-2 md:pb-0`}>
           <SearchField name="search" className="w-full">
             <SearchField.Group className="w-full">
               <SearchField.SearchIcon />
@@ -46,41 +66,6 @@ export default function Header() {
             </SearchField.Group>
           </SearchField>
         </div>
-        {/*<div className="flex ">
-          <Dropdown>
-            <Button className='p-0'>
-              <Avatar className="size-14">
-                <Avatar.Image
-                  alt="Francisco Entony"
-                  src="/avatar.JPG"
-                />
-                <Avatar.Fallback>FE</Avatar.Fallback>
-              </Avatar>
-            </Button>
-            <Dropdown.Popover className='dark'>
-              <Dropdown.Menu
-                onAction={(key) => console.log(`Selected: ${key}`)}
-              >
-                <Dropdown.Item id="new-file" textValue="New file">
-                  <Label>New file</Label>
-                </Dropdown.Item>
-                <Dropdown.Item id="copy-link" textValue="Copy link">
-                  <Label>Copy link</Label>
-                </Dropdown.Item>
-                <Dropdown.Item id="edit-file" textValue="Edit file">
-                  <Label>Edit file</Label>
-                </Dropdown.Item>
-                <Dropdown.Item
-                  id="delete-file"
-                  textValue="Delete file"
-                  variant="danger"
-                >
-                  <Label>Delete file</Label>
-                </Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown.Popover>
-          </Dropdown>
-        </div>*/}
       </header>
     </div>
   );

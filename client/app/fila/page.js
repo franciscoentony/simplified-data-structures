@@ -64,7 +64,7 @@ export default function PageFila() {
   };
 
   return (
-    <div className="flex flex-col flex-1 items-center justify-center font-sans text-white relative overflow-hidden">
+    <div className="flex flex-col flex-1 items-center justify-center text-white relative overflow-hidden">
       <BgUniverse2 />
       <Header />
       {/* ALERTA CONDICIONAL */}
@@ -72,14 +72,14 @@ export default function PageFila() {
         <FilaCheia onFechar={() => setMostrarErro(false)} estrutura="Fila" />
       )}
 
-      <main className="flex flex-1 justify-start py-10 px-10 items-center w-full max-w-3xl flex-col">
-        <div className="">
+      <main className="flex flex-1 justify-start py-10 px-4 md:px-10 items-center w-full max-w-4xl flex-col">
+        <div className="w-full">
           <Breadcrumbs className="dark mb-3">
             <Breadcrumbs.Item href="/">
-              <span className="text-xl">Início</span>
+              <span className="text-lg md:text-xl">Início</span>
             </Breadcrumbs.Item>
             <Breadcrumbs.Item>
-              <span className="text-xl">Fila</span>
+              <span className="text-lg md:text-xl">Fila</span>
             </Breadcrumbs.Item>
           </Breadcrumbs>
           <TituloDesc
@@ -89,8 +89,8 @@ export default function PageFila() {
             }
           />
         </div>
-        <div className="h-auto flex items-start gap-5">
-          <div className="flex flex-col gap-3">
+        <div className="w-full h-auto flex flex-col items-center gap-5 mt-10 overflow-x-auto pb-4">
+          <div className="flex flex-col gap-3 min-w-fit">
             {Array.from({ length: MAX_SLOTS }).map((_, i) => {
               const index = (head + i) % MAX_SLOTS;
               const item = fila[index];
@@ -101,9 +101,9 @@ export default function PageFila() {
               return (
                 <div
                   key={`logical-slot-${index}`}
-                  className="flex items-center gap-5"
+                  className="flex items-center gap-3 md:gap-5"
                 >
-                  <div className="w-40 text-right font-medium">
+                  <div className="w-24 md:w-40 text-right font-medium text-xs md:text-base">
                     {isFront && (
                       <span className="text-emerald-400">
                         Primeiro Elemento
@@ -115,22 +115,22 @@ export default function PageFila() {
                   </div>
 
                   <div
-                    className={`p-[0.05rem] rounded-2xl transition-all duration-300 w-60 ${item ? "bg-linear-to-t from-stone-900 to-stone-300 shadow-lg" : "bg-stone-700/20"}`}
+                    className={`p-[0.05rem] rounded-2xl transition-all duration-300 w-40 md:w-60 ${item ? "bg-linear-to-t from-stone-900 to-stone-300 shadow-lg" : "bg-stone-700/20"}`}
                   >
                     <div
-                      className={`rounded-2xl w-full flex justify-center items-center h-15 p-2 font-semibold ${item ? "bg-stone-900 text-white" : "bg-stone-900/40 text-stone-700 italic text-sm"}`}
+                      className={`rounded-2xl w-full flex justify-center items-center h-12 md:h-15 p-2 font-semibold ${item ? "bg-stone-900 text-white" : "bg-stone-900/40 text-stone-700 italic text-sm"}`}
                     >
                       {item ? item.nome : "Vazio"}
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-4">
-                    <div className="w-20 text-[10px] font-bold">
+                  <div className="flex items-center gap-2 md:gap-4">
+                    <div className="w-16 md:w-20 text-[10px] md:text-xs font-bold">
                       {isFront && (
-                        <span className="text-cyan-400">FRONT ➔</span>
+                        <span className="text-cyan-400 font-bold animate-pulse">FRONT ➔</span>
                       )}
                       {isRear && (
-                        <span className="text-purple-400">REAR ➔</span>
+                        <span className="text-purple-400 font-bold animate-pulse">REAR ➔</span>
                       )}
                     </div>
                     <IndiceComponent indice={index} />
@@ -141,15 +141,15 @@ export default function PageFila() {
           </div>
         </div>
 
-        <div className="flex gap-5 mt-10">
+        <div className="flex flex-col sm:flex-row gap-5 mt-10 w-full sm:w-auto">
           <button
-            className="px-6 py-2 cursor-pointer bg-stone-800 border border-stone-600 rounded-xl hover:bg-stone-700 transition-all active:scale-95"
+            className="px-6 py-3 cursor-pointer bg-stone-800 border border-stone-600 rounded-xl hover:bg-stone-700 transition-all active:scale-95 font-semibold"
             onClick={adicionar}
           >
             Adicionar Item
           </button>
           <button
-            className="px-6 py-2 cursor-pointer bg-stone-800 border border-stone-600 rounded-xl hover:bg-stone-700 transition-all active:scale-95"
+            className="px-6 py-3 cursor-pointer bg-stone-800 border border-stone-600 rounded-xl hover:bg-stone-700 transition-all active:scale-95 font-semibold"
             onClick={remover}
           >
             Remover Item

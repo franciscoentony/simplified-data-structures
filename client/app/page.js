@@ -29,10 +29,10 @@ export default function Home() {
 
   return (
     <BgUniverse>
-      <div className="w-full flex flex-col min-h-screen items-center justify-center font-sans text-white relative overflow-hidden">
+      <div className="w-full flex flex-col min-h-screen items-center justify-center text-white relative overflow-hidden">
         <div className="relative z-10 w-full flex flex-col items-center">
           <Header />
-          <main className="flex flex-1 w-full flex-col items-center justify-center py-10 md:py-32 px-4 md:px-0 sm:items-center">
+          <main className="flex flex-1 w-full flex-col items-center justify-center gap-10 py-10 md:py-32 px-4 md:px-0 sm:items-center">
             <section className="w-full min-h-80 md:min-h-100 text-center items-center flex flex-col pt-10">
               <div className="px-4">
                 <h1 className="font-bold text-3xl md:text-4xl">
@@ -48,7 +48,7 @@ export default function Home() {
               </div>
             </section>
 
-            <section className="w-full flex items-center justify-center px-4">
+            <section className="w-full flex items-center justify-center px-10">
               <div className="w-full max-w-5xl flex flex-col lg:flex-row bg-stone-950 p-6 md:p-10 rounded-4xl shadow-2xl gap-10">
                 <div className="w-full lg:w-100 h-80 md:h-120 overflow-hidden rounded-3xl dark flex-shrink-0">
                   {isLoading && <Skeleton className={"h-full z-10"} />}
@@ -88,45 +88,41 @@ export default function Home() {
               </div>
             </section>
 
-            <section className="w-full h-auto flex items-center justify-center lg:p-32 py-12 px-6">
-              <div className="w-full max-w-7xl flex flex-col lg:gap-20 justify-between items-center gap-12">
-                <h1 className="text-4xl font-semibold ">Sobre Mim</h1>
-                <div className="flex w-80/100 gap-10">
-                  <div className="w-60/100 flex flex-col lg:flex-row gap-20 
-                  items-center"
-                  >
-                    <div className="flex flex-col w-full">
-                      <p className="text-2xl font-medium">
-                        Apaixonado por tecnologia desde os 8 anos, o que começou
-                        como uma fantasia de criança rapidamente se transformou
-                        no meu propósito de vida.
-                      </p>
+            <section className="w-full h-auto flex items-center justify-center lg:py-32 py-12 px-6">
+              <div className="w-full max-w-6xl flex flex-col items-center gap-12 lg:gap-20">
+                <h1 className="text-4xl font-semibold">Sobre Mim</h1>
+                <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20 w-full">
+                  <div className="flex flex-col w-full lg:w-3/5 order-2 lg:order-1">
+                    <p className="text-xl md:text-2xl font-medium">
+                      Apaixonado por tecnologia desde os 8 anos, o que começou
+                      como uma fantasia de criança rapidamente se transformou
+                      no meu propósito de vida.
+                    </p>
 
-                      <p className="text-stone-300 mt-4">
-                        Inspirado pela biologia, física, astronomia e grandes
-                        obras da ficção, transformei o hobby da pré-adolescência
-                        em uma jornada acadêmica e profissional. Cada hora de
-                        estudo não é apenas para interesse pessoal, mas um
-                        investimento para guiar minha geração a um futuro
-                        promissor, buscando entender profundamente como as
-                        tecnologias funcionam.
-                      </p>
+                    <p className="text-stone-300 mt-4 text-base md:text-lg">
+                      Inspirado pela biologia, física, astronomia e grandes
+                      obras da ficção, transformei o hobby da pré-adolescência
+                      em uma jornada acadêmica e profissional. Cada hora de
+                      estudo não é apenas para interesse pessoal, mas um
+                      investimento para guiar minha geração a um futuro
+                      promissor, buscando entender profundamente como as
+                      tecnologias funcionam.
+                    </p>
 
-                      <p className="text-stone-300 mt-4">
-                        Hoje, aos 19 anos e cursando Sistemas para Internet no
-                        IFRN Canguaretama, sigo expandindo meus horizontes e
-                        liderando futuros cientistas. Atualmente, ministro
-                        minicursos para jovens que desejam ingressar na área,
-                        oferecendo o apoio e o incentivo que muitas vezes faltam
-                        no início da carreira tecnológica.
-                      </p>
-                      <div className="flex flex-col gap-4 mt-10">
-                        <h3 className="text-2xl font-semibold">Me siga nas redes</h3>
-                        <Redes/>
-                      </div>
+                    <p className="text-stone-300 mt-4 text-base md:text-lg">
+                      Hoje, aos 19 anos e cursando Sistemas para Internet no
+                      IFRN Canguaretama, sigo expandindo meus horizontes e
+                      liderando futuros cientistas. Atualmente, ministro
+                      minicursos para jovens que desejam ingressar na área,
+                      oferecendo o apoio e o incentivo que muitas vezes faltam
+                      no início da carreira tecnológica.
+                    </p>
+                    <div className="flex flex-col gap-4 mt-10">
+                      <h3 className="text-2xl font-semibold">Me siga nas redes</h3>
+                      <Redes/>
                     </div>
                   </div>
-                  <div className="relative top-7 w-full max-w-md lg:max-w-lg h-100 lg:h-137.5 overflow-hidden rounded-4xl shadow-2xl order-1 lg:order-2">
+                  <div className="relative w-full max-w-sm lg:max-w-md h-[400px] lg:h-[550px] overflow-hidden rounded-4xl shadow-2xl order-1 lg:order-2">
                     <Image
                       src="/Foto.jpg"
                       alt="Foto"
@@ -139,7 +135,7 @@ export default function Home() {
               </div>
             </section>
 
-            <section className="w-full flex-1 max-w-5xl px-4 pb-20">
+            <section className="w-full flex-1 max-w-5xl px-4 ">
               <div>
                 <h1 className="text-2xl md:text-3xl font-semibold mb-10 text-center md:text-left">
                   Algumas estruturas básicas:
@@ -158,23 +154,25 @@ export default function Home() {
                 </div>
               </div>
             </section>
-            <section className="mt-10">
-              <div className="">
+            <section className="mt-10 w-full px-4">
+              <div className="max-w-5xl mx-auto">
                 <div className="text-center">
-                  <h2 className="text-3xl font-semibold mb-2">E qual é o preço para aprender dessa forma?
-                  </h2>
-                  <p className="text-stone-400 font-medium"><strong>É gratis!</strong> Ista forma de aprender é uma contribuição para a comunidade.</p>
+                  <h2 className="text-3xl font-semibold mb-2">E qual é o preço para aprender dessa forma?</h2>
+                  <p className="text-stone-400 font-medium">
+                    <strong>É gratis!</strong> Esta forma de aprender é uma contribuição para a comunidade.
+                  </p>
                 </div>
-                <div className="mt-20 flex relative left-40">
-                  <CardPrice cor={'bg-stone-800'}/>
-
-                  <div className="w-auto rotate-15 relative top-10 right-20 scale-90 -z-10">
-                    <div className="w-full h-full rounded-[2rem] absolute bg-black/40 z-10"></div>
+                <div className="mt-20 flex flex-col lg:flex-row items-center justify-center lg:h-[500px] overflow-visible">
+                  <div className="relative z-20">
                     <CardPrice cor={'bg-stone-800'}/>
                   </div>
-                  <div className="w-auto rotate-30 relative top-20
-                   right-50 scale-75 -z-15">
-                    <div className="w-full h-full rounded-[2rem] absolute bg-black/40 z-10"></div>
+
+                  <div className="hidden lg:block w-auto rotate-15 relative top-10 right-20 scale-90 z-10">
+                    <div className="w-full h-full rounded-[2rem] absolute bg-black/40 z-10 pointer-events-none"></div>
+                    <CardPrice cor={'bg-stone-800'}/>
+                  </div>
+                  <div className="hidden lg:block w-auto rotate-30 relative top-20 right-40 scale-75 z-0">
+                    <div className="w-full h-full rounded-[2rem] absolute bg-black/40 z-10 pointer-events-none"></div>
                     <CardPrice cor={'bg-stone-800'}/>
                   </div>
                 </div>
