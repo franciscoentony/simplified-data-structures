@@ -126,8 +126,8 @@ const StyledWrapper = styled.div`
   /* The Moon */
   .uiverse-midnight-sky .moon {
     position: absolute;
-    top: 15%;
-    right: 15%;
+    top: 10%;
+    right: 10%;
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -135,6 +135,16 @@ const StyledWrapper = styled.div`
     box-shadow: 15px 15px 0 0 #fdfbd3;
     filter: drop-shadow(0 0 15px rgba(253, 251, 211, 0.4));
     z-index: 10;
+  }
+
+  @media (max-width: 768px) {
+    .uiverse-midnight-sky .moon {
+      top: 5%;
+      right: 5%;
+      width: 50px;
+      height: 50px;
+      box-shadow: 10px 10px 0 0 #fdfbd3;
+    }
   }
 
   /* Twinkle Animation */

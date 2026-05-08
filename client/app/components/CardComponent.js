@@ -15,7 +15,7 @@ export default function CardComponent({ image, title, link }) {
           className="w-full h-70 rounded-3xl overflow-hidden bg-stone-900
                 hover:bg-stone-700 duration-200"
         >
-          <div className="w-full h-80/100 overflow-hidden dark bg-black">
+          <div className="w-full h-80/100 overflow-hidden dark bg-[#060606]">
             {isLoading && <Skeleton className="h-full z-10" />}
             <Image
               src={image}
@@ -24,7 +24,7 @@ export default function CardComponent({ image, title, link }) {
               width={500}
               height={500}
               onLoad={() => setIsLoading(false)}
-              className={`duration-300 scale-110 ${!isLoading ? "opacity-100" : "opacity-0"}`}
+              className={`duration-300 scale-120 relative top-5 ${!isLoading ? "opacity-100" : "opacity-0"}`}
             />
           </div>
           <div className="h-20/100 px-3 flex items-center">

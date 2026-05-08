@@ -10,10 +10,8 @@ import Header from "../components/Header"
 import FilaCheia from "../components/ErrorAlert";
 import TituloDesc from "../components/TituloDesc";
 import IndiceComponent from "../components/IndiceComponent";
-
-import BgUniverse2 from "../components/BgUniverse2";
-
 import { Breadcrumbs } from "@heroui/react";
+import BgUniverse2 from "../components/BgUniverse2";
 
 // Componente para o índice lateral
 
@@ -64,7 +62,7 @@ export default function PageFila() {
   };
 
   return (
-    <div className="flex flex-col flex-1 items-center justify-center text-white relative overflow-hidden">
+    <div className="flex flex-col flex-1 items-center justify-center text-white relative overflow-hidden min-h-screen">
       <BgUniverse2 />
       <Header />
       {/* ALERTA CONDICIONAL */}
@@ -72,7 +70,7 @@ export default function PageFila() {
         <FilaCheia onFechar={() => setMostrarErro(false)} estrutura="Fila" />
       )}
 
-      <main className="flex flex-1 justify-start py-10 px-4 md:px-10 items-center w-full max-w-4xl flex-col">
+      <main className="flex flex-1 justify-start py-10 px-4 md:px-10 items-center w-full max-w-6xl flex-col">
         <div className="w-full">
           <Breadcrumbs className="dark mb-3">
             <Breadcrumbs.Item href="/">
@@ -89,8 +87,8 @@ export default function PageFila() {
             }
           />
         </div>
-        <div className="w-full h-auto flex flex-col items-center gap-5 mt-10 overflow-x-auto pb-4">
-          <div className="flex flex-col gap-3 min-w-fit">
+        <div className="w-full h-auto flex flex-col items-center gap-2 md:gap-4 mt-10 pb-4">
+          <div className="flex flex-col gap-1 md:gap-2 w-full">
             {Array.from({ length: MAX_SLOTS }).map((_, i) => {
               const index = (head + i) % MAX_SLOTS;
               const item = fila[index];
@@ -101,39 +99,41 @@ export default function PageFila() {
               return (
                 <div
                   key={`logical-slot-${index}`}
-                  className="flex items-center gap-3 md:gap-5"
+                  className="flex items-center justify-center w-full relative h-14 md:h-16"
                 >
-                  <div className="w-24 md:w-40 text-right font-medium text-xs md:text-base">
-                    {isFront && (
-                      <span className="text-emerald-400">
-                        Primeiro Elemento
-                      </span>
-                    )}
-                    {isRear && !isFront && (
-                      <span className="text-purple-300">Último Elemento</span>
-                    )}
-                  </div>
-
-                  <div
-                    className={`p-[0.05rem] rounded-2xl transition-all duration-300 w-40 md:w-60 ${item ? "bg-linear-to-t from-stone-900 to-stone-300 shadow-lg" : "bg-stone-700/20"}`}
-                  >
-                    <div
-                      className={`rounded-2xl w-full flex justify-center items-center h-12 md:h-15 p-2 font-semibold ${item ? "bg-stone-900 text-white" : "bg-stone-900/40 text-stone-700 italic text-sm"}`}
-                    >
-                      {item ? item.nome : "Vazio"}
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-2 md:gap-4">
-                    <div className="w-16 md:w-20 text-[10px] md:text-xs font-bold">
+                  {/* Container de Referência do Slot */}
+                  <div className="relative w-[85%] max-w-[320px] md:w-60">
+                    
+                    {/* Labels (Primeiro/Último) - Sobreposto no Mobile, Lado a Lado no Desktop */}
+                    <div className="absolute -left-2 md:-left-2 top-1/2 -translate-y-1/2 md:-translate-x-full md:pr-2 text-left md:text-right font-bold text-[11px] md:text-lg leading-tight z-30 drop-shadow-lg whitespace-nowrap">
                       {isFront && (
-                        <span className="text-cyan-400 font-bold animate-pulse">FRONT ➔</span>
+                        <span className="text-emerald-400 bg-black/60 px-2 py-0.5 rounded-md border border-white/10 md:border-none">
+                          <span className="hidden sm:inline">Primeiro Elemento</span>
+                          <span className="sm:hidden">1º Elem.</span>
+                        </span>
                       )}
-                      {isRear && (
-                        <span className="text-purple-400 font-bold animate-pulse">REAR ➔</span>
+                      {isRear && !isFront && (
+                        <span className="text-purple-300 bg-black/60 px-2 py-0.5 rounded-md border border-white/10 md:border-none">
+                          <span className="hidden sm:inline">Último Elemento</span>
+                          <span className="sm:hidden">Últ. Elem.</span>
+                        </span>
                       )}
                     </div>
-                    <IndiceComponent indice={index} />
+
+                    <div
+                      className={`p-[0.05rem] rounded-2xl transition-all duration-300 w-full flex-shrink-0 ${item ? "bg-linear-to-t from-stone-900 to-stone-300 shadow-lg" : "bg-stone-700/20"}`}
+                    >
+                      <div
+                        className={`rounded-2xl w-full flex justify-center items-center h-12 md:h-14 p-2 font-semibold text-base md:text-lg ${item ? "bg-stone-900 text-white" : "bg-stone-900/40 text-stone-700 italic text-[12px] md:text-sm"}`}
+                      >
+                        {item ? item.nome : "Vazio"}
+                      </div>
+                    </div>
+
+                    {/* Índice - Sobreposto no Mobile (Mais à direita), Lado a Lado no Desktop */}
+                    <div className="absolute -right-4 md:-right-2 top-1/2 -translate-y-1/2 md:translate-x-full md:pl-2 scale-75 md:scale-100 z-30">
+                      <IndiceComponent indice={index} />
+                    </div>
                   </div>
                 </div>
               );
@@ -141,7 +141,7 @@ export default function PageFila() {
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-5 mt-10 w-full sm:w-auto">
+        <div className="flex flex-col sm:flex-row gap-4 mt-10 w-full sm:w-auto">
           <button
             className="px-6 py-3 cursor-pointer bg-stone-800 border border-stone-600 rounded-xl hover:bg-stone-700 transition-all active:scale-95 font-semibold"
             onClick={adicionar}
