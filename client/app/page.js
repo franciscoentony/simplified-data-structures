@@ -1,5 +1,5 @@
-"use client"
-import { useState } from 'react'
+"use client";
+import { useState } from "react";
 import Link from "next/link";
 import { Avatar, Label, SearchField, Link as LinkHero } from "@heroui/react";
 import Header from "./components/Header";
@@ -10,6 +10,8 @@ import CardComponent from "./components/CardComponent";
 import Image from "next/image";
 import { Skeleton } from "@heroui/react";
 import Footer from "./components/Footer";
+import Redes from "./components/RedesComponent";
+import CardPrice from './components/CardPrice'
 
 export function ButtonLink({ children, ...rest }) {
   return (
@@ -23,7 +25,7 @@ export function ButtonLink({ children, ...rest }) {
 }
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
 
   return (
     <BgUniverse>
@@ -46,7 +48,7 @@ export default function Home() {
               </div>
             </section>
 
-            <section className="w-full flex items-center justify-center mb-20 px-4">
+            <section className="w-full flex items-center justify-center px-4">
               <div className="w-full max-w-5xl flex flex-col lg:flex-row bg-stone-950 p-6 md:p-10 rounded-4xl shadow-2xl gap-10">
                 <div className="w-full lg:w-100 h-80 md:h-120 overflow-hidden rounded-3xl dark flex-shrink-0">
                   {isLoading && <Skeleton className={"h-full z-10"} />}
@@ -54,15 +56,85 @@ export default function Home() {
                     src={"/art-data-structure.png"}
                     alt="Imagem"
                     width={500}
-                    height={500} draggable="false"
+                    height={500}
+                    draggable="false"
                     className={`w-full h-full object-cover scale-110 duration-300 ${!isLoading ? "opacity-100" : "opacity-0"}`}
                     onLoad={() => setIsLoading(false)}
                   />
                 </div>
                 <div className="w-full lg:w-auto flex-1">
-                  <h3 className="font-bold text-2xl md:text-3xl pb-6 text-center lg:text-left">O que são Estruturas de Dados?</h3>
-                  <p className="font-medium text-stone-400 text-base md:text-lg pb-5 text-justify lg:text-left">Estruturas de dados são formas especializadas de armazenar, organizar e manipular dados no computador para uso eficiente. Elas funcionam como &quot;contêineres&quot; que facilitam o acesso, a modificação e a gestão de informações, otimizando o desempenho de algoritmos. A escolha da estrutura ideal depende do problema, influenciando diretamente a velocidade e o uso de memória do sistema.</p>
-                  <p className="font-medium text-stone-400 text-base md:text-lg text-justify lg:text-left">As mais fundamentais incluem <strong>arrays, listas ligadas, pilhas, filas, tabelas hash, árvores e grafos</strong> , divididas entre <strong>lineares</strong> e <strong>não-lineares</strong>. </p>
+                  <h3 className="font-bold text-2xl md:text-3xl pb-6 text-center lg:text-left">
+                    O que são Estruturas de Dados?
+                  </h3>
+                  <p className="font-medium text-stone-400 text-base md:text-lg pb-5 text-justify lg:text-left">
+                    Estruturas de dados são formas especializadas de armazenar,
+                    organizar e manipular dados no computador para uso
+                    eficiente. Elas funcionam como &quot;contêineres&quot; que
+                    facilitam o acesso, a modificação e a gestão de informações,
+                    otimizando o desempenho de algoritmos. A escolha da
+                    estrutura ideal depende do problema, influenciando
+                    diretamente a velocidade e o uso de memória do sistema.
+                  </p>
+                  <p className="font-medium text-stone-400 text-base md:text-lg text-justify lg:text-left">
+                    As mais fundamentais incluem{" "}
+                    <strong>
+                      arrays, listas ligadas, pilhas, filas, tabelas hash,
+                      árvores e grafos
+                    </strong>{" "}
+                    , divididas entre <strong>lineares</strong> e{" "}
+                    <strong>não-lineares</strong>.{" "}
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section className="w-full h-auto flex items-center justify-center lg:p-32 py-12 px-6">
+              <div className="w-full max-w-7xl flex flex-col lg:gap-20 justify-between items-center gap-12">
+                <h1 className="text-4xl font-semibold ">Sobre Mim</h1>
+                <div className="flex w-80/100 gap-10">
+                  <div className="w-60/100 flex flex-col lg:flex-row gap-20 
+                  items-center"
+                  >
+                    <div className="flex flex-col w-full">
+                      <p className="text-2xl font-medium">
+                        Apaixonado por tecnologia desde os 8 anos, o que começou
+                        como uma fantasia de criança rapidamente se transformou
+                        no meu propósito de vida.
+                      </p>
+
+                      <p className="text-stone-300 mt-4">
+                        Inspirado pela biologia, física, astronomia e grandes
+                        obras da ficção, transformei o hobby da pré-adolescência
+                        em uma jornada acadêmica e profissional. Cada hora de
+                        estudo não é apenas para interesse pessoal, mas um
+                        investimento para guiar minha geração a um futuro
+                        promissor, buscando entender profundamente como as
+                        tecnologias funcionam.
+                      </p>
+
+                      <p className="text-stone-300 mt-4">
+                        Hoje, aos 19 anos e cursando Sistemas para Internet no
+                        IFRN Canguaretama, sigo expandindo meus horizontes e
+                        liderando futuros cientistas. Atualmente, ministro
+                        minicursos para jovens que desejam ingressar na área,
+                        oferecendo o apoio e o incentivo que muitas vezes faltam
+                        no início da carreira tecnológica.
+                      </p>
+                      <div className="flex flex-col gap-4 mt-10">
+                        <h3 className="text-2xl font-semibold">Me siga nas redes</h3>
+                        <Redes/>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="relative top-7 w-full max-w-md lg:max-w-lg h-100 lg:h-137.5 overflow-hidden rounded-4xl shadow-2xl order-1 lg:order-2">
+                    <Image
+                      src="/Foto.jpg"
+                      alt="Foto"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 500px"
+                    />
+                  </div>
                 </div>
               </div>
             </section>
@@ -70,11 +142,41 @@ export default function Home() {
             <section className="w-full flex-1 max-w-5xl px-4 pb-20">
               <div>
                 <h1 className="text-2xl md:text-3xl font-semibold mb-10 text-center md:text-left">
-                  Selecione a Estrutura de Dados:
+                  Algumas estruturas básicas:
                 </h1>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-10">
-                  <CardComponent image={'/banner-cards/Fila-Circular.png'} title={"Fila Circular / Queue"} link={'/fila'} />
-                  <CardComponent image={'/banner-cards/Pilha.png'} title={"Pilha / Stack"} link={'/pilha'} />
+                  <CardComponent
+                    image={"/banner-cards/Fila-Circular.png"}
+                    title={"Fila Circular / Queue"}
+                    link={"/fila"}
+                  />
+                  <CardComponent
+                    image={"/banner-cards/Pilha.png"}
+                    title={"Pilha / Stack"}
+                    link={"/pilha"}
+                  />
+                </div>
+              </div>
+            </section>
+            <section className="mt-10">
+              <div className="">
+                <div className="text-center">
+                  <h2 className="text-3xl font-semibold mb-2">E qual é o preço para aprender dessa forma?
+                  </h2>
+                  <p className="text-stone-400 font-medium"><strong>É gratis!</strong> Ista forma de aprender é uma contribuição para a comunidade.</p>
+                </div>
+                <div className="mt-20 flex relative left-40">
+                  <CardPrice cor={'bg-stone-800'}/>
+
+                  <div className="w-auto rotate-15 relative top-10 right-20 scale-90 -z-10">
+                    <div className="w-full h-full rounded-[2rem] absolute bg-black/40 z-10"></div>
+                    <CardPrice cor={'bg-stone-800'}/>
+                  </div>
+                  <div className="w-auto rotate-30 relative top-20
+                   right-50 scale-75 -z-15">
+                    <div className="w-full h-full rounded-[2rem] absolute bg-black/40 z-10"></div>
+                    <CardPrice cor={'bg-stone-800'}/>
+                  </div>
                 </div>
               </div>
             </section>
