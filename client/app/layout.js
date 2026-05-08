@@ -1,17 +1,13 @@
 import { Providers } from './providers'
-import { Geist, Geist_Mono } from "next/font/google";
+import { Outfit } from "next/font/google";
 import StyledComponentsRegistry from './registry'
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const outfit = Outfit({
   subsets: ["latin"],
+  variable: "--font-outfit",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata = {
   title: "Create Next App",
@@ -22,7 +18,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="pt-br"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${outfit.variable} font-sans h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <StyledComponentsRegistry>

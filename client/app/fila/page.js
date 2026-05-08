@@ -11,6 +11,8 @@ import FilaCheia from "../components/ErrorAlert";
 import TituloDesc from "../components/TituloDesc";
 import IndiceComponent from "../components/IndiceComponent";
 
+import BgUniverse2 from "../components/BgUniverse2";
+
 import { Breadcrumbs } from "@heroui/react";
 
 // Componente para o índice lateral
@@ -62,8 +64,9 @@ export default function PageFila() {
   };
 
   return (
-    <div className="flex flex-col flex-1 items-center justify-center font-sans bg-[#0e0e0e] text-white relative overflow-hidden">
-      <Header/>
+    <div className="flex flex-col flex-1 items-center justify-center font-sans text-white relative overflow-hidden">
+      <BgUniverse2 />
+      <Header />
       {/* ALERTA CONDICIONAL */}
       {mostrarErro && (
         <FilaCheia onFechar={() => setMostrarErro(false)} estrutura="Fila" />
@@ -82,7 +85,7 @@ export default function PageFila() {
           <TituloDesc
             titulo={"Fila Circular"}
             descricao={
-              "A fila segue o princípio FIFO (First-In, First-Out): O primeiro elemento a ser adicionado será o último a sair."
+              "A fila segue o princípio FIFO (First-In, First-Out): O primeiro elemento a ser adicionado será o primeiro a sair."
             }
           />
         </div>

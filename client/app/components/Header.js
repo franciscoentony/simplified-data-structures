@@ -4,11 +4,11 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <div className="p-[.1rem] w-50/100 mt-5 bg-linear-to-t from-[#151e2f] to-stone-700 rounded-3xl">
-      <header className="flex justify-between items-center bg-[#151e2f] p-5 rounded-3xl dark">
-        <div className="font-semibold text-2xl">
+    <div className="p-[.1rem] w-[95%] md:w-60/100 mt-5 bg-linear-to-t from-[#151e2f] to-stone-700 rounded-3xl mx-auto">
+      <header className="flex flex-col md:flex-row justify-between items-center bg-[#151e2f] p-4 md:p-5 rounded-3xl dark gap-4">
+        <Link href={'/'} className="font-semibold text-2xl">
           <p>S/ES</p>
-        </div>
+        </Link>
         <nav className="flex">
           <ul className="flex gap-2">
             <li>
@@ -21,7 +21,7 @@ export default function Header() {
             </li>
             <li>
               <Link
-                href="/"
+                href="/estruturas"
                 className="font-medium p-3 duration-300 ease-in-out hover:bg-indigo-900 rounded-xl"
               >
                 Estruturas
@@ -37,16 +37,16 @@ export default function Header() {
             </li>
           </ul>
         </nav>
-        <div className="dark">
-          <SearchField name="search">
-            <SearchField.Group>
+        <div className="dark w-full md:w-auto">
+          <SearchField name="search" className="w-full">
+            <SearchField.Group className="w-full">
               <SearchField.SearchIcon />
-              <SearchField.Input className="w-50" placeholder="Buscar..." />
+              <SearchField.Input className="w-full md:w-50" placeholder="Buscar..." />
               <SearchField.ClearButton />
             </SearchField.Group>
           </SearchField>
         </div>
-        <div className="flex ">
+        {/*<div className="flex ">
           <Dropdown>
             <Button className='p-0'>
               <Avatar className="size-14">
@@ -80,7 +80,7 @@ export default function Header() {
               </Dropdown.Menu>
             </Dropdown.Popover>
           </Dropdown>
-        </div>
+        </div>*/}
       </header>
     </div>
   );
