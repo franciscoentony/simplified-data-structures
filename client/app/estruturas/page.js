@@ -4,16 +4,10 @@ import Link from "next/link";
 import Header from "../components/Header";
 import BgUniverse from "../components/BgUniverse";
 import CardComponent from "../components/CardComponent";
-import Image from "next/image";
-import { Skeleton } from "@heroui/react";
 import Footer from "../components/Footer";
-import CardPrice from "../components/CardPrice";
-import Redes from "../components/RedesComponent";
 
 
 export default function Estruturas() {
-  const [isLoading, setIsLoading] = useState(true);
-
   return (
     <BgUniverse>
       <div className="w-full flex flex-col min-h-screen items-center justify-center text-white relative overflow-hidden">

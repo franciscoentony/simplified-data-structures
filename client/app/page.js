@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { Avatar, Label, SearchField, Link as LinkHero } from "@heroui/react";
 import Header from "./components/Header";
 import GlowButton from "./components/GlowButton";
 import GitHubButton from "./components/GitHubButton";
@@ -50,7 +49,7 @@ export default function Home() {
 
             <section className="w-full flex items-center justify-center px-10">
               <div className="w-full max-w-5xl flex flex-col lg:flex-row bg-stone-950 p-6 md:p-10 rounded-4xl shadow-2xl gap-10">
-                <div className="w-full lg:w-100 h-80 md:h-120 overflow-hidden rounded-3xl dark flex-shrink-0">
+                <div className="w-full lg:w-100 h-80 md:h-120 overflow-hidden rounded-3xl dark shrink-0">
                   {isLoading && <Skeleton className={"h-full z-10"} />}
                   <Image
                     src={"/art-data-structure.png"}
@@ -122,7 +121,8 @@ export default function Home() {
                       <Redes/>
                     </div>
                   </div>
-                  <div className="relative w-full max-w-sm lg:max-w-md h-[400px] lg:h-[550px] overflow-hidden rounded-4xl shadow-2xl order-1 lg:order-2">
+                  <div className="relative w-full max-w-sm lg:max-w-md h-100 lg:h-137.5 overflow-hidden rounded-4xl shadow-2xl order-1 lg:order-2 dark bg-black">
+                    {isLoading && <Skeleton className={"h-full z-10"} />}
                     <Image
                       src="/Foto.jpg"
                       alt="Foto"
