@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
       lang="pt-br"
       className={`${outfit.variable} h-full antialiased`}
     >
-      <body className={`${outfit.className} min-h-full flex flex-col`}>
+      <body className={`${outfit.className} min-h-full flex flex-col dark`}>
         <StyledComponentsRegistry>
           <Providers>
             {children}
