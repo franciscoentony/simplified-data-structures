@@ -5,6 +5,7 @@ const nextConfig = {
     unoptimized: true,
   },
   basePath: "/simplified-data-structures",
+  assetPrefix: "/simplified-data-structures",
   compiler: {
     styledComponents: true,
   },
