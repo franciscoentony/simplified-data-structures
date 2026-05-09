@@ -8,6 +8,7 @@ const outfit = Outfit({
   variable: "--font-outfit",
 });
 
+const prefix = process.env.NODE_ENV === 'production' ? '/simplified-data-structures' : '';
 
 export const metadata = {
   title: {
@@ -15,7 +16,7 @@ export const metadata = {
     template: "%s | Estruturas de Dados Simplificadas",
   },
   icons: {
-    icon: "/favicon-structure.png",
+    icon: `${prefix}/favicon-structure.png`,
   }
 };
 

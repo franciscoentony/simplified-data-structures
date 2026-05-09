@@ -1,6 +1,4 @@
 "use client";
-import { useState } from "react";
-import Link from "next/link";
 import Header from "../components/Header";
 import BgUniverse from "../components/BgUniverse";
 import CardComponent from "../components/CardComponent";

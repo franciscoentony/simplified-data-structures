@@ -4,6 +4,9 @@ import { SearchField } from "@heroui/react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import Image from "next/image"
+
+const prefix = process.env.NODE_ENV === 'production' ? '/simplified-data-structures' : '';;
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,8 +15,8 @@ export default function Header() {
     <div className="p-[.1rem] w-[95%] md:w-60/100 mt-5 bg-linear-to-t from-[#151e2f] to-stone-700 rounded-3xl mx-auto z-50 relative">
       <header className="flex flex-col md:flex-row justify-between items-center bg-[#151e2f] p-4 md:p-5 rounded-3xl dark gap-4">
         <div className="flex w-full md:w-auto justify-between items-center">
-          <Link href={'/'} className="font-semibold text-2xl">
-            <p>S/ES</p>
+          <Link href={'/'} className="">
+            <Image src={`${prefix}/logo.png`} alt="" width={50} height={50}/>
           </Link>
           
           <button 
