@@ -12,6 +12,8 @@ import Footer from "./components/Footer";
 import Redes from "./components/RedesComponent";
 import CardPrice from './components/CardPrice'
 
+const prefix = process.env.NODE_ENV === 'production' ? '/simplified-data-structures' : '';
+
 export function ButtonLink({ children, ...rest }) {
   return (
     <Link
@@ -52,7 +54,7 @@ export default function Home() {
                 <div className="w-full lg:w-100 h-80 md:h-120 overflow-hidden rounded-3xl dark shrink-0">
                   {isLoading && <Skeleton className={"h-full z-10"} />}
                   <Image
-                    src={"/art-data-structure.png"}
+                    src={`${prefix}/art-data-structure.png`}
                     alt="Imagem"
                     width={500}
                     height={500}
@@ -124,7 +126,7 @@ export default function Home() {
                   <div className="relative w-full max-w-sm lg:max-w-md h-100 lg:h-137.5 overflow-hidden rounded-4xl shadow-2xl order-1 lg:order-2 dark bg-black">
                     {isLoading && <Skeleton className={"h-full z-10"} />}
                     <Image
-                      src="/Foto.jpg"
+                      src={`${prefix}/Foto.jpg`}
                       alt="Foto"
                       fill
                       className="object-cover"
@@ -142,12 +144,12 @@ export default function Home() {
                 </h1>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-10">
                   <CardComponent
-                    image={"/banner-cards/Fila-Circular.png"}
+                    image={`${prefix}/banner-cards/Fila-Circular.png`}
                     title={"Fila Circular / Queue"}
                     link={"/fila"}
                   />
                   <CardComponent
-                    image={"/banner-cards/Pilha.png"}
+                    image={`${prefix}/banner-cards/Fila-Circular.png`}
                     title={"Pilha / Stack"}
                     link={"/pilha"}
                   />
